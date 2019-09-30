@@ -1,4 +1,4 @@
-{% set version = '0.3' %}
+{% set version = '0.3-8' %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,20 +10,19 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/SpatialPack_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/SpatialPack/SpatialPack_{{ version }}.tar.gz
-  sha256: 4c80fc1c77bc97fc678e6e201ecf7f0f89dcf3417b3b497a28a3639e9b30bd8a
+  sha256: a0e54b5dee3cd30a634e2d30380fe163942b672073fd909be888803332ed5151
 
 build:
   merge_build_host: True  # [win]
-  number: 2
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
 
 requirements:
   build:
-    - {{ compiler('c') }}        # [not win]
-    - {{ compiler('fortran') }}  # [not win]
-    - m2w64-toolchain            # [win]
+    - {{ compiler('c') }}              # [not win]
+    - {{ compiler('m2w64_c') }}        # [win]
     - {{posix}}filesystem        # [win]
     - {{posix}}make
     - {{posix}}sed               # [win]
@@ -43,12 +42,14 @@ test:
 about:
   home: http://spatialpack.mat.utfsm.cl
   license: GPL (>= 2.0)
-  summary: 'Tools to assess the association between two spatial processes. Currently, four methodologies
-    are implemented: A modified t-test to perform hypothesis testing about the independence
-    between the processes, a suitable nonparametric correlation coefficient, the codispersion
-    coefficient, and an F test for assessing the multiple correlation between one spatial
-    process and several others. SpatialPack gives methods to complement methodologies
-    that are available in geoR for one spatial process.'
+  summary: 'Tools to assess the association between two spatial processes. Currently, several
+    methodologies are implemented: A modified t-test to perform hypothesis testing about
+    the independence between the processes, a suitable nonparametric correlation coefficient,
+    the codispersion coefficient, and an F test for assessing the multiple correlation
+    between one spatial process and several others. Functions for image processing and
+    computing the spatial association between images are also provided. SpatialPack
+    gives methods to complement methodologies that are available in geoR for one spatial
+    process.'
   license_family: GPL3
   license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2'
 
@@ -58,19 +59,19 @@ extra:
     - xhochy
 
 # Package: SpatialPack
-# Version: 0.3
-# Date: 2018-03-20
+# Version: 0.3-8
+# Date: 2019-07-31
 # Title: Tools for Assessment the Association Between Two Spatial Processes
+# Description: Tools to assess the association between two spatial processes. Currently, several methodologies are implemented: A modified t-test to perform hypothesis testing about the independence between the processes, a suitable nonparametric correlation coefficient, the codispersion coefficient, and an F test for assessing the multiple correlation between one spatial process and several others. Functions for image processing and computing the spatial association between images are also provided. SpatialPack gives methods to complement methodologies that are available in geoR for one spatial process.
 # Authors@R: c(person("Felipe", "Osorio", role = c("aut", "cre"), email = "felipe.osorios@usm.cl"), person("Ronny", "Vallejos", role = "aut", email = "ronny.vallejos@usm.cl"), person("Francisco", "Cuevas", role = "ctb"), person("Diego", "Mancilla", role = "ctb"))
-# Description: Tools to assess the association between two spatial processes. Currently, four methodologies are implemented: A modified t-test to perform hypothesis testing about the independence between the processes, a suitable nonparametric correlation coefficient, the codispersion coefficient, and an F test for assessing the multiple correlation between one spatial process and several others. SpatialPack gives methods to complement methodologies that are available in geoR for one spatial process.
 # Author: Felipe Osorio [aut, cre], Ronny Vallejos [aut], Francisco Cuevas [ctb], Diego Mancilla [ctb]
 # Maintainer: Felipe Osorio <felipe.osorios@usm.cl>
+# Depends: R (>= 2.10)
 # Imports: stats, graphics
 # License: GPL (>= 2.0)
 # URL: http://spatialpack.mat.utfsm.cl
 # LazyLoad: yes
-# LazyData: yes
 # NeedsCompilation: yes
-# Packaged: 2018-03-20 18:16:35 UTC; root
+# Packaged: 2019-07-31 19:11:14 UTC; felipe
 # Repository: CRAN
-# Date/Publication: 2018-03-20 22:18:00 UTC
+# Date/Publication: 2019-07-31 21:50:05 UTC
