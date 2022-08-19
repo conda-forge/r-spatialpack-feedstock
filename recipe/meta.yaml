@@ -1,4 +1,4 @@
-{% set version = "0.3-8196" %}
+{% set version = "0.4" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,7 +10,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/SpatialPack_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/SpatialPack/SpatialPack_{{ version }}.tar.gz
-  sha256: 9027e1656db97b721a12f5eda46532c6a99b4a079299b8d12fb57d445b237b4d
+  sha256: 8b7fbc6d9f962d4b982777bfc794b99d827d3f33cc07058372f73dff1210188d
 
 build:
   merge_build_host: true  # [win]
