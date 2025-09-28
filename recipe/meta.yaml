@@ -23,11 +23,13 @@ requirements:
     - {{ stdlib("c") }}                # [not win]
     - {{ compiler('m2w64_c') }}        # [win]
     - {{ stdlib("m2w64_c") }}          # [win]
-    - {{ posix }}filesystem        # [win]
+    - {{ compiler('fortran') }}        # [not win]
+    - {{ compiler('m2w64_fortran') }}  # [win]
+    - {{ posix }}filesystem            # [win]
     - {{ posix }}make
-    - {{ posix }}sed               # [win]
-    - {{ posix }}coreutils         # [win]
-    - {{ posix }}zip               # [win]
+    - {{ posix }}sed                   # [win]
+    - {{ posix }}coreutils             # [win]
+    - {{ posix }}zip                   # [win]
   host:
     - r-base
     - r-fastmatrix
